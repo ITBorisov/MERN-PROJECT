@@ -1,0 +1,41 @@
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+
+import Layout from './hoc/layout';
+import Home from './components/Home/home';
+import MoviesView from './components/Movies/movies';
+
+//Auth
+import Auth from './hoc/auth';
+import Login from './containers/Admin/login';
+import Register from './containers/Admin/register';
+import Logout from './components/User/logout';
+
+//Profile
+import UserProfile from './components/User/userProfile';
+import UserReviews from './components/User/userReviews';
+
+//Operation
+import AddReview from './containers/Admin/addReview';
+import EditReview from './containers/Admin/editReview';
+
+const Routes = () => {
+    return (
+            <Layout>
+                <Switch>
+                    <Route path="/" exact component={Auth(Home, null)}/>
+                    <Route path="/reviews/:id" exact component={Auth(MoviesView)} />
+                    <Route path="/login" exact component={Auth(Login, false)} />
+                    <Route path="/logout" exact component={Auth(Logout, true)}/>
+                    <Route path="/user" exact component={Auth(UserProfile, true)} />
+                    <Route path="/user/register" exact component={Auth(Register, true)} />
+                    <Route path="/user/reviews" exact component={Auth(UserReviews, true)} />
+                    <Route path="/user/add" exact component={Auth(AddReview, true)} />
+                    <Route path="/user/edit-review/:id" exact component={Auth(EditReview, true)} />
+                  
+                </Switch>
+            </ Layout>
+    );
+};
+
+export default Routes;

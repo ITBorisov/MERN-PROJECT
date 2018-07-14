@@ -1,0 +1,41 @@
+.img-class{
+    width: 400px;
+    height: 300px;
+}
+
+.review{
+    text-align: start;
+}
+
+.btn{
+    margin: 0px 5px;
+}
+
+.thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+}
+.thumbnail p {
+    margin-top: 15px;
+    color: #555;
+}
+.btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #f1f1f1;
+    border-radius: 0;
+    transition: .2s;
+}
+.btn:hover, .btn:focus {
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #000;
+}
+
+.bg-1 {
+    background: #2d2d30;
+    color: #bdbdbd;
+}
+h3 {color: #fff;}
+p {font-style: italic;}
