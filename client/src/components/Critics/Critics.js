@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { getUsers } from '../../actions/auth';
 import { connect } from 'react-redux';
+import moment from 'moment-js';
+import './Critics.css';
 
 export class Critics extends Component {
 
@@ -12,12 +14,27 @@ export class Critics extends Component {
     showCritics = (user) => (
         user.users ?
             user.users.map(item => (
-                <tr key={item._id}>
-                    <img style={{height: 150}}src={item.image} />
-                    <th>{item.name} </th>
-                    <th>2 years</th>
-                    <th>{item.email}</th>
-                </tr>
+                <tr data-status="pagado" key={item._id}>
+                <td>
+                    <a href="" className="star">
+                        <i className="glyphicon glyphicon-star" />
+                    </a>
+                </td>
+                <td>
+                    <div className="media">
+                        <a href="#" className="pull-left">
+                            <img src={item.image} className="media-photo" style={{width: 100}}/>
+                        </a>
+                        <div className="media-body">
+                            <span className="media-meta pull-right">Registered: {moment(item.registerAt).format("MM/DD/YY")}</span>
+                            <h4 className="title">
+                                {item.name}
+                            </h4>
+                            <p className="summary">Experience: {item.description}</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
             ))
 
             : null
@@ -27,21 +44,24 @@ export class Critics extends Component {
         let user = this.props.user;
         console.log(user);
         return (
-            <div className="container" style={{margin: 0}}>
-                <h1 className="text-center">CRITICS</h1>
-                <table className="table text-center" style={{width: "70%"}}>
-                    <thead>
-                        <tr>
-                            <th>Avatar:</th>
-                            <th>Name: </th>
-                            <th>Experiance:</th>
-                            <th>Email: </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.showCritics(user)}
-                    </tbody>
-                </table>
+            <div>
+                <section className="content">
+                    <br />
+                    <div className="col-md-8 col-md-offset-2">
+                        <div className="panel panel-default">
+                            <div className="panel-body">
+                                <h2 className="text-center">ALL CRITICS</h2>
+                                <div className="table-container">
+                                    <table className="table table-filter">
+                                        <tbody>
+                                            {this.showCritics(user)}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         )
     }

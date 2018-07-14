@@ -20,6 +20,10 @@ const userSchema = mongoose.Schema({
         type:String,
         maxlength:100
     },
+    description: {
+        type: String,
+        maxlength: 100
+    },
     image: {
         type: String
     },
@@ -29,6 +33,10 @@ const userSchema = mongoose.Schema({
     },
     token:{
         type:String
+    },
+    registerAt: {
+        type: Date,
+        default: Date.now
     }
 })
 

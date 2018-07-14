@@ -52,7 +52,9 @@ router.get('/auth', auth, (req, res) => {
         email: req.user.email,
         name: req.user.name,
         image: req.user.image,
-        isAdmin: req.user.isAdmin
+        isAdmin: req.user.isAdmin,
+        description: req.user.description,
+        registerAt: req.user.registerAt
     })
 });
 
