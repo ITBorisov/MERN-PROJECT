@@ -44,10 +44,10 @@ export class Critics extends Component {
         let user = this.props.user;
         console.log(user);
         return (
-            <div>
+            <div className="container">
                 <section className="content">
                     <br />
-                    <div className="col-md-8 col-md-offset-2">
+                    <div className="col-md-10 col-md-offset-1">
                         <div className="panel panel-default">
                             <div className="panel-body">
                                 <h2 className="text-center">ALL CRITICS</h2>

@@ -9,7 +9,7 @@ const ReviewItem = (props) => {
             <div class="thumbnail">
                 <img src={props.image} alt="" style={{height: 240}}/>
                 <p><strong>{props.name}</strong></p>
-                <p>{props.review}</p>
+                <p style={{overflow: "hidden", height: 120}}>{props.review}</p>
                 <p><strong>Rating: {props.rating}/10</strong></p>
                 <p>Date: {moment(props.createAt).format("MM/DD/YY")}</p>
              
