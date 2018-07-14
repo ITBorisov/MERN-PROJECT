@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getReviews } from '../actions/reviews';
 
-import BookItem from '../itemsUI/book_item';
+import ReviewItem from '../itemsUI/review_item';
 
 export class HomeContainer extends Component {
 
@@ -13,7 +13,7 @@ export class HomeContainer extends Component {
   renderItems = (reviews) => (
     reviews.list ?
       reviews.list.map(item => (
-        <BookItem {...item} key={item._id} />
+        <ReviewItem {...item} key={item._id} />
       ))
       : null
   )
@@ -33,7 +33,9 @@ export class HomeContainer extends Component {
         <h2>ALL REVIEWS</h2>
         <br />
           {this.renderItems(this.props.reviews)}
-          <div className="loadmore" onClick={this.loadMore}>Load More</div>
+          <br />
+          <br />
+          <button className="btn" onClick={this.loadMore}>Load More</button>
         </div>
       </div>
     )

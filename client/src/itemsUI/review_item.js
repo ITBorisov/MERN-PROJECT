@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import moment from 'moment-js';
 
-const BookItem = (props) => {
+const ReviewItem = (props) => {
     return (
 
         <div class="col-sm-4">
@@ -22,4 +22,4 @@ const BookItem = (props) => {
     )
 }
 
-export default BookItem
+export default ReviewItem

@@ -2,7 +2,7 @@ import React,{ Component } from 'react';
 import { auth } from '../actions/auth'
 import {connect} from 'react-redux';
 
-export default function(ComposedClass ,reload){
+export default function(ComposedClass ,reload, isAdmin){
     class AuthenticationCheck extends Component {
 
         state = {
@@ -17,12 +17,19 @@ export default function(ComposedClass ,reload){
             this.setState({loading:false})
 
             if(!nextProps.user.login.isAuth){
+               
                 if(reload){
                     this.props.history.push('/login');
                 }
             } else {
                 if(reload === false) {
                     this.props.history.push('/user')
+                }
+
+                if(isAdmin){
+                    if(!nextProps.user.login.isAdmin){
+                        this.props.history.push('/admin-access');
+                    }
                 }
             }
         }
