@@ -16,6 +16,41 @@ class Register extends PureComponent {
         error: ''
     }
 
+    validate = () => {
+        let isError = false;
+        const errors = {};
+
+        if(this.state.formdata.name.length < 5) {
+            isError = true;
+            errors.nameerror = 'Name needs to be atleast 5 char long'
+        }
+
+        if(this.state.formdata.image.length < 5) {
+            isError = true;
+            errors.imageerror = 'Image needs to be atleast 5 char long'
+        }
+
+        if(this.state.formdata.author.length < 5) {
+            isError = true;
+            errors.authorerror = 'Author needs to be atleast 5 char long'
+        }
+
+
+        if(this.state.formdata.review.length < 10) {
+            isError = true;
+            errors.reviewerror = 'review must be more than 10 characters'
+        }
+
+        if(isError){
+            this.setState({
+                ...this.state.errorsValidation,
+                ...errors
+            })
+        }
+
+        return isError;
+    }
+
     componentWillMount() {
         this.props.dispatch(getUsers());
     }

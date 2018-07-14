@@ -28,13 +28,16 @@ export class HomeContainer extends Component {
     console.log(this.props);
     return (
       <div className="container bg-3 text-center">
-      
+
         <div className="row">
-        <h2>ALL REVIEWS</h2>
-        <br />
+          <h2>ALL REVIEWS</h2>
+          <br />
           {this.renderItems(this.props.reviews)}
           <br />
           <br />
+
+        </div>
+        <div>
           <button className="btn" onClick={this.loadMore}>Load More</button>
         </div>
       </div>

@@ -8,10 +8,18 @@ export class AddReview extends Component {
     state = {
         formdata: {
             name: '',
-            image: '',
+            image: '', 
             author: '',
             review: '',
-            rating: ''
+            rating: '',
+        },
+
+        errorsValidation: {
+            nameerror: '',
+            imageerror: '',
+            authorerror: '',
+            reviewerror: '',
+            ratingerror: ''
         }
       
     }
@@ -38,13 +46,55 @@ export class AddReview extends Component {
         })
     }
 
+    validate = () => {
+        let isError = false;
+        const errors = {};
+
+        if(this.state.formdata.name.length < 5) {
+            isError = true;
+            errors.nameerror = 'Name needs to be atleast 5 char long'
+        }
+
+        if(this.state.formdata.image.length < 5) {
+            isError = true;
+            errors.imageerror = 'Image needs to be atleast 5 char long'
+        }
+
+        if(this.state.formdata.author.length < 5) {
+            isError = true;
+            errors.authorerror = 'Author needs to be atleast 5 char long'
+        }
+
+
+        if(this.state.formdata.review.length < 10) {
+            isError = true;
+            errors.reviewerror = 'review must be more than 10 characters'
+        }
+
+        if(isError){
+            this.setState({
+                ...this.state.errorsValidation,
+                ...errors
+            })
+        }
+
+        return isError;
+    }
     
     addForm = (e) => {
         e.preventDefault();
-        this.props.dispatch(addReview({
-            ...this.state.formdata,
-            ownerId: this.props.user.login.id
-        }))
+
+        const err = this.validate();
+        console.log(err);
+        if(!err){
+            this.props.dispatch(addReview({
+                ...this.state.formdata,
+                ownerId: this.props.user.login.id
+            }))
+    
+            this.props.history.push('/user/reviews')
+        }
+       
     }
 
     render() {
@@ -61,6 +111,7 @@ export class AddReview extends Component {
                                 name="name"
                                 onChange={(event) => this.onChange(event, 'name')} 
                                 value={this.state.formdata.name} />
+                                <span style={{color: "red"}}>{this.state.nameerror}</span>
                         </div>
                         <div className="form-group">
                             <label>Image: </label>
@@ -68,8 +119,10 @@ export class AddReview extends Component {
                                 type="text"
                                 className="form-control"
                                 name="image"
+                
                                 onChange={(event) => this.onChange(event, 'image')} 
                                 value={this.state.formdata.image} />
+                                <span style={{color: "red"}}>{this.state.imageerror}</span>
                         </div>
                         <div className="form-group">
                             <label>Author: </label>
@@ -77,8 +130,10 @@ export class AddReview extends Component {
                                 type="text"
                                 className="form-control"
                                 name="author"
+                          
                                 value={this.state.formdata.author}
                                 onChange={(event) => this.onChange(event, 'author')} />
+                                <span style={{color: "red"}}>{this.state.authorerror}</span>
                         </div>
 
                         <div className="form-group">
@@ -89,6 +144,7 @@ export class AddReview extends Component {
                                 name="rating"
                                 value={this.state.formdata.rating}
                                 onChange={(event) => this.onChange(event, 'rating')} />
+                                <span style={{color: "red"}}>{this.state.ratingerror}</span>
                         </div>
 
                         <div className="form-group">
@@ -100,7 +156,7 @@ export class AddReview extends Component {
                                 value={this.state.formdata.review}
                                 onChange={(event) => this.onChange(event, 'review')}
                                 >
-                                
+                                <span style={{color: "red"}}>{this.state.reviewerror}</span>
                             </textarea>
                         </div>
 

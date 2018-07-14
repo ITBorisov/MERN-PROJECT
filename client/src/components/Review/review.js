@@ -11,7 +11,7 @@ const style ={
     margin: "0 auto",
 }
 
-export class MoviesView extends Component {
+export class ReviewView extends Component {
 
     componentWillMount() {
         this.props.dispatch(getReviewWithReviewer(this.props.match.params.id))
@@ -72,4 +72,4 @@ function mapStateToProps(state) {
             }
 }
         
-export default connect(mapStateToProps)(MoviesView)
+export default connect(mapStateToProps)(ReviewView)

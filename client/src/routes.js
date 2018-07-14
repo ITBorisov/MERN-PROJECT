@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Layout from './hoc/layout';
 import Home from './components/Home/home';
-import MoviesView from './components/Movies/movies';
+import ReviewView from './components/Review/review';
 
 //Auth
 import Auth from './hoc/auth';
@@ -27,7 +27,7 @@ const Routes = () => {
             <Layout>
                 <Switch>
                     <Route path="/" exact component={Auth(Home, null)}/>
-                    <Route path="/reviews/:id" exact component={Auth(MoviesView)} />
+                    <Route path="/reviews/:id" exact component={Auth(ReviewView)} />
                     <Route path="/login" exact component={Auth(Login, false)} />
                     <Route path="/logout" exact component={Auth(Logout, true)}/>
                     <Route path="/user" exact component={Auth(UserProfile, true)} />

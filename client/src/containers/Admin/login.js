@@ -33,8 +33,8 @@ export class Login extends Component {
     return (
       <div className="container">
       
-        <h2 className="center">Login</h2>
-        <form onSubmit={this.loginForm}>
+        <h2 className="text-center" style={{margin: 10}}>Login</h2>
+        <form onSubmit={this.loginForm} style={{width: 500, margin: "0 auto"}}>
             <div className="form-group">
             <label>Email: </label>
             <input 
