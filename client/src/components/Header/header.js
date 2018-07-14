@@ -46,6 +46,7 @@ class Header extends Component {
             <div className="collapse navbar-collapse" id="myNavbar">
               <ul className="nav navbar-nav">
                 <li className="active"><Link to="/"><span className="glyphicon glyphicon-film"></span> REVIEWS</Link></li>
+                <li><Link to="/critics"><span className="glyphicon glyphicon-education"></span> CRITICS</Link></li>
               </ul>
               <ul className="nav navbar-nav navbar-right">
       

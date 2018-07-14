@@ -23,7 +23,7 @@ class Register extends PureComponent {
         user.users ?
             user.users.map(item => (
                 <tr key={item._id}>
-                    <img src={item.image} />
+                    <img src={item.image} style={{width: 100}}/>
                     <th>{item.name} </th>
                     <th>2 years</th>
                     <th>{item.email}</th>
@@ -31,7 +31,7 @@ class Register extends PureComponent {
             ))
 
             : null
-        )
+    )
 
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
@@ -104,8 +104,8 @@ class Register extends PureComponent {
                     <button type="submit" className="btn btn-default">ADD USER</button>
                 </form>
                 <br />
-                <h1 className="center">Users</h1>
-                <table className="table table-bordered">
+                <h1 className="text-center">Users</h1>
+                <table className="table" style={{width: "70%"}}>
                     <thead>
                         <tr>
                             <th>Avatar:</th>

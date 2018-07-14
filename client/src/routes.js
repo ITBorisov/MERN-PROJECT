@@ -19,6 +19,7 @@ import UserReviews from './components/User/userReviews';
 import AddReview from './containers/Admin/addReview';
 import EditReview from './containers/Admin/editReview';
 
+import Critics from './components/Critics/Critics'
 import Access from './components/Acess/Acess';
 
 const Routes = () => {
@@ -34,6 +35,7 @@ const Routes = () => {
                     <Route path="/user/reviews" exact component={Auth(UserReviews, true)} />
                     <Route path="/user/add" exact component={Auth(AddReview, true)} />
                     <Route path="/user/edit-review/:id" exact component={Auth(EditReview, true)} />
+                    <Route path="/critics" exact component={Auth(Critics, null)} />
                     <Route pat="/access-denied" exact component={Access} />
                 </Switch>
             </ Layout>

@@ -51,6 +51,7 @@ router.get('/auth', auth, (req, res) => {
         id: req.user._id,
         email: req.user.email,
         name: req.user.name,
+        image: req.user.image,
         isAdmin: req.user.isAdmin
     })
 });
