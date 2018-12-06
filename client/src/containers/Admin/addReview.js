@@ -28,7 +28,7 @@ export class AddReview extends Component {
         review.post ?
             <div className="conf_link">
                 Cool !! <Link to={`/reviews/${review.bookId}`}>
-                    Click the link to see the postt
+                    Click the link to see the posttw
                 </Link>
             </div>
         :null
@@ -101,7 +101,7 @@ export class AddReview extends Component {
         return (
             <div>
                 <div className="container">
-                    <h2 className="center">ADD NEW MOVIE REVIEW</h2>
+                    <h2 className="center">ADD NEW MOVIE REVIEWwa</h2>
                     <form onSubmit={this.addForm}>
                         <div className="form-group">
                             <label>Name: </label>

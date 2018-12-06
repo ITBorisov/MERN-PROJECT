@@ -73,7 +73,7 @@ export class EditReview extends PureComponent {
                 <div className="container">
                     {
                         reviews.updateReview ?
-                            <div>Review is updated successfully</div>
+                            <div>Review is updated successfullyww</div>
                         :null
                     }
 
