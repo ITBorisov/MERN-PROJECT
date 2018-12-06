@@ -9,6 +9,10 @@
     border-color: #080808;
 }
 
+.proba{
+  display: inline;
+}
+
 .navbar-inverse .navbar-nav>li>a {
   color: #fff;
 }

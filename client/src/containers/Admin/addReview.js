@@ -28,7 +28,7 @@ export class AddReview extends Component {
         review.post ?
             <div className="conf_link">
                 Cool !! <Link to={`/reviews/${review.bookId}`}>
-                    Click the link to see the post
+                    Click the link to see the postt
                 </Link>
             </div>
         :null

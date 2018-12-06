@@ -32,7 +32,7 @@ export class ReviewView extends Component {
             <ul className="list-inline list-unstyled">
               <li><span><i className="glyphicon glyphicon-calendar" /> {moment(reviews.review.createdAt).format("MM/DD/YY")} </span></li>
               <li>|</li>
-              <span><i className="glyphicon glyphicon-comment" /> 2 comments</span>
+              <span><i className="glyphicon glyphicon-comment" /> 4 comments</span>
               <li>|</li>
               <li>
                 <span className="glyphicon glyphicon-star" />
